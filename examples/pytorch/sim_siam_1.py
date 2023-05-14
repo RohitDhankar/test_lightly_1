@@ -18,7 +18,7 @@ from lightly.transforms import SimSiamTransform
 class SimSiam(nn.Module):
     def __init__(self, backbone):
         super().__init__()
-        print("----type(backbone---",type(backbone))
+        #print("----type(backbone---",type(backbone)) #<class 'torch.nn.modules.container.Sequential'>
         self.backbone = backbone
         self.projection_head = SimSiamProjectionHead(512, 512, 128)
         self.prediction_head = SimSiamPredictionHead(128, 64, 128)

@@ -444,8 +444,8 @@ class SMoGPredictionHead(ProjectionHead):
 class SimSiamPredictionHead(ProjectionHead):
     """Prediction head used for SimSiam.
 
-    "The prediction MLP (h) has BN applied to its hidden fc layers. Its output
-    fc does not have BN (...) or ReLU. This MLP has 2 layers." [0]
+    "The prediction MLP -- Multi Layer Perceptron  (h) has BN applied to its hidden fc ( fully connected )layers. 
+    Its output fc does not have BN (...) or ReLU. This MLP has 2 layers." [0]
 
     [0]: SimSiam, 2020, https://arxiv.org/abs/2011.10566
 
