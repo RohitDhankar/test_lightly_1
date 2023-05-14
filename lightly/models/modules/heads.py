@@ -450,6 +450,10 @@ class SimSiamPredictionHead(ProjectionHead):
     [0]: SimSiam, 2020, https://arxiv.org/abs/2011.10566
 
     """
+    # constructor method __init__
+    # self -- init the instance of the class and call its own self 
+    # input_dim -- Dtype Integer 
+    # hidden_dim -- Dtype Integer 
 
     def __init__(
         self, input_dim: int = 2048, hidden_dim: int = 512, output_dim: int = 2048
