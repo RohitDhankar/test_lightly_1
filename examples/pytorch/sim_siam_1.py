@@ -34,6 +34,7 @@ class SimSiam(nn.Module):
 resnet = torchvision.models.resnet18()
 backbone = nn.Sequential(*list(resnet.children())[:-1])
 model_SimSiam_1 = SimSiam(backbone)
+print("---Model_Arch__model_SimSiam_1---->",model_SimSiam_1)
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model_SimSiam_1.to(device)
@@ -64,13 +65,13 @@ for epoch in range(10):
     print("---this is EPOCH Num--->",epoch)
     total_loss = 0
     for (x0, x1), _, _ in dataloader:
-        print("---type(x0---",type(x0))
-        print("---type(x1---",type(x1))
+        #print("---type(x0---",type(x0)) # -type(x0--- <class 'torch.Tensor'>
+        #print("---type(x1---",type(x1)) ##type(x1--- <class 'torch.Tensor'>
 
         x0 = x0.to(device)
         x1 = x1.to(device)
-        print("---device--",device)
-        print("---type(x1---",type(x1))
+        #print("---device--",device) # ---device-- cuda
+        #print("---type(x1---",type(x1)) ##type(x1--- <class 'torch.Tensor'>
 
         z0, p0 = model_SimSiam_1(x0)
         z1, p1 = model_SimSiam_1(x1)
@@ -81,3 +82,4 @@ for epoch in range(10):
         optimizer.zero_grad()
     avg_loss = total_loss / len(dataloader)
     print(f"epoch: {epoch:>02}, loss: {avg_loss:.5f}")
+    # epoch: 01, loss: -0.67880

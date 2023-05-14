@@ -453,15 +453,16 @@ class SimSiamPredictionHead(ProjectionHead):
     # constructor method __init__
     # self -- init the instance of the class and call its own self 
     # input_dim -- Dtype Integer 
-    # hidden_dim -- Dtype Integer 
+    # hidden_dim -- Dtype Integer
+    # super constructor of the PARENT Class -- super(SimSiamPredictionHead, self).__init__( 
 
     def __init__(
         self, input_dim: int = 2048, hidden_dim: int = 512, output_dim: int = 2048
     ):
         super(SimSiamPredictionHead, self).__init__(
             [
-                (input_dim, hidden_dim, nn.BatchNorm1d(hidden_dim), nn.ReLU()),
-                (hidden_dim, output_dim, None, None),
+                (input_dim, hidden_dim, nn.BatchNorm1d(hidden_dim), nn.ReLU()), # 1st Layer - Inout Fully Connected Layer --BatchNorm and ReLU
+                (hidden_dim, output_dim, None, None), # 2nd Layer -- Output Fully Connected Layer -- No BatchNorm and No ReLU
             ]
         )
 
