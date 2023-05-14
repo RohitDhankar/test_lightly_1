@@ -1,22 +1,4 @@
 
-## git remote set-url origin https://github.com/RohitDhankar/active_learning_lightly.git
-3# git rm --cached giant_file
-
-git rm --cached datasets/cifar10/cifar-10-batches-py/batches.meta
-
- git rm --cached datasets/cifar10/cifar-10-batches-py/batches.meta
-git rm --cached datasets/cifar10/cifar-10-batches-py/data_batch_1
- git rm --cached datasets/cifar10/cifar-10-batches-py/data_batch_2
- git rm --cached datasets/cifar10/cifar-10-batches-py/data_batch_3
- git rm --cached datasets/cifar10/cifar-10-batches-py/data_batch_4
- git rm --cached datasets/cifar10/cifar-10-batches-py/data_batch_5
- git rm --cached datasets/cifar10/cifar-10-batches-py/readme.html
- git rm --cached datasets/cifar10/cifar-10-batches-py/test_batch
- git rm --cached datasets/cifar10/cifar-10-python.tar.gz
-
-
-
-
 # Note: The model and training settings do not follow the reference settings
 # from the paper. The settings are chosen such that the example can easily be
 # run on a small dataset with a single GPU.
@@ -31,10 +13,12 @@ from lightly.loss import NegativeCosineSimilarity
 from lightly.models.modules import SimSiamPredictionHead, SimSiamProjectionHead
 from lightly.transforms import SimSiamTransform
 
+#logs_save_dir = "__run_logs/sim_siam_run_logs/"
 
 class SimSiam(nn.Module):
     def __init__(self, backbone):
         super().__init__()
+        print("----type(backbone---",type(backbone))
         self.backbone = backbone
         self.projection_head = SimSiamProjectionHead(512, 512, 128)
         self.prediction_head = SimSiamPredictionHead(128, 64, 128)
@@ -88,8 +72,8 @@ for epoch in range(10):
         print("---device--",device)
         print("---type(x1---",type(x1))
 
-        z0, p0 = model(x0)
-        z1, p1 = model(x1)
+        z0, p0 = model_SimSiam_1(x0)
+        z1, p1 = model_SimSiam_1(x1)
         loss = 0.5 * (criterion(z0, p1) + criterion(z1, p0))
         total_loss += loss.detach()
         loss.backward()

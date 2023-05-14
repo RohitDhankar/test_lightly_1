@@ -1,0 +1,857 @@
+----type(backbone--- <class 'torch.nn.modules.container.Sequential'>
+---type(model_SimSiam_1----> <class '__main__.SimSiam'>
+Files already downloaded and verified
+Starting Training
+---this is EPOCH Num---> 0
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+epoch: 00, loss: -0.37801
+---this is EPOCH Num---> 1
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
+---device-- cuda
+---type(x1--- <class 'torch.Tensor'>
+---type(x0--- <class 'torch.Tensor'>
+---type(x1--- <class 'torch.Tensor'>
