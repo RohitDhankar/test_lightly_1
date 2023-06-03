@@ -37,11 +37,11 @@ from tensorflow.keras.applications.inception_v3 import InceptionV3
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Flatten, Dense, Dropout, GlobalAveragePooling2D
 
-# import argparse
-# parser = argparse.ArgumentParser(description='py_knn_img_similarity.')
-# parser.add_argument('--root_dir', help='root_dir_imgs', nargs='?', const=0)
-# # parser.add_argument('--perc_split', help='train_test_split', nargs='?', const=0)
-# # parser.add_argument('--data_type_flag', help='dataType', nargs='?', const=0)
+import argparse
+parser = argparse.ArgumentParser(description='py_knn_img_similarity.')
+parser.add_argument('--root_dir', help='root_dir_imgs', nargs='?', const=0)
+parser.add_argument('--perc_split', help='train_test_split', nargs='?', const=0)
+parser.add_argument('--data_type_flag', help='dataType', nargs='?', const=0)
 
 # # args = parser.parse_args()
 # # root_dir_1 = str(args.root_dir_1)
@@ -57,82 +57,83 @@ from tensorflow.keras.layers import Input, Flatten, Dense, Dropout, GlobalAverag
 # Thus -- include_top=False, will DROP the Classifier 
 # TRANSFER LEARNING -- https://research.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf
 # """
-# def model_picker(name):
-#     if (name == 'vgg16'):
-#         model = VGG16(weights='imagenet',
-#                       include_top=False,
-#                       input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
-#                       pooling='max')
-#     elif (name == 'vgg19'):
-#         model = VGG19(weights='imagenet',
-#                       include_top=False,
-#                       input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
-#                       pooling='max')
-#     elif (name == 'mobilenet'):
-#         # TODO -- MobileNet -- extra PARAMS -- depth_multiplier , alpha
-#         model = MobileNet(weights='imagenet',
-#                           include_top=False,
-#                           input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
-#                           pooling='max',
-#                           depth_multiplier=1,
-#                           alpha=1)
-#     elif (name == 'inception'):
-#         model = InceptionV3(weights='imagenet',
-#                             include_top=False,
-#                             input_shape=(224, 224, 3),
-#                             pooling='max')
-#     elif (name == 'resnet'):
-#         model = ResNet50(weights='imagenet',
-#                          include_top=False,
-#                          input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
-#                         pooling='max')
-#     elif (name == 'xception'):
-#         model = Xception(weights='imagenet',
-#                          include_top=False,
-#                          input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
-#                          pooling='max')
-#     else:
-#         print("Specified model not available")
-#     print("----Type(model---",type(model)) #<class 'keras.engine.functional.Functional'>
-#     return model
+
+def model_picker(name):
+    if (name == 'vgg16'):
+        model = VGG16(weights='imagenet',
+                      include_top=False,
+                      input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
+                      pooling='max')
+    elif (name == 'vgg19'):
+        model = VGG19(weights='imagenet',
+                      include_top=False,
+                      input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
+                      pooling='max')
+    elif (name == 'mobilenet'):
+        # TODO -- MobileNet -- extra PARAMS -- depth_multiplier , alpha
+        model = MobileNet(weights='imagenet',
+                          include_top=False,
+                          input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
+                          pooling='max',
+                          depth_multiplier=1,
+                          alpha=1)
+    elif (name == 'inception'):
+        model = InceptionV3(weights='imagenet',
+                            include_top=False,
+                            input_shape=(224, 224, 3),
+                            pooling='max')
+    elif (name == 'resnet'):
+        model = ResNet50(weights='imagenet',
+                         include_top=False,
+                         input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
+                        pooling='max')
+    elif (name == 'xception'):
+        model = Xception(weights='imagenet',
+                         include_top=False,
+                         input_shape=(224, 224, 3), # ints (img_height, img_width ,channel count)
+                         pooling='max')
+    else:
+        print("Specified model not available")
+    print("----Type(model---",type(model)) #<class 'keras.engine.functional.Functional'>
+    return model
 
 
-# def extract_features(img_path, model):
-#     """
-#     https://keras.io/api/layers/preprocessing_layers/image_preprocessing/resizing/#resizing-class
+def extract_features(img_path, model):
+    """
+    https://keras.io/api/layers/preprocessing_layers/image_preprocessing/resizing/#resizing-class
     
-#     """
-#     input_shape = (224, 224, 3) # ints (img_height, img_width ,channel count)
-#     img = tf_image_prep.load_img(img_path, target_size=(input_shape[0], input_shape[1])) # tf_image
-#     img_array = tf_image_prep.img_to_array(img)
-#     expanded_img_array = np.expand_dims(img_array, axis=0)
-#     preprocessed_img = preprocess_input(expanded_img_array)
-#     #
-#     features = model.predict(preprocessed_img)
-#     #print("----Type(features----",type(features)) #<class 'numpy.ndarray'>
-#     flattened_features = features.flatten()
-#     normalized_features = flattened_features / norm(flattened_features)
-#     # print("type(normalized_features)---",type(normalized_features))
-#     print("---normalized_features.shape---",normalized_features.shape)
-#     # print("---normalized_features.ndim---",normalized_features.ndim)
-#     # print("len(normalized_features)-----",len(normalized_features))
-#     #print("normalized_features)-----",normalized_features[0:5])
-#     return normalized_features
+    """
+    input_shape = (224, 224, 3) # ints (img_height, img_width ,channel count)
+    img = tf_image_prep.load_img(img_path, target_size=(input_shape[0], input_shape[1])) # tf_image
+    img_array = tf_image_prep.img_to_array(img)
+    expanded_img_array = np.expand_dims(img_array, axis=0)
+    preprocessed_img = preprocess_input(expanded_img_array)
+    #
+    features = model.predict(preprocessed_img)
+    #print("----Type(features----",type(features)) #<class 'numpy.ndarray'>
+    flattened_features = features.flatten()
+    normalized_features = flattened_features / norm(flattened_features)
+    # print("type(normalized_features)---",type(normalized_features))
+    print("---normalized_features.shape---",normalized_features.shape)
+    # print("---normalized_features.ndim---",normalized_features.ndim)
+    # print("len(normalized_features)-----",len(normalized_features))
+    #print("normalized_features)-----",normalized_features[0:5])
+    return normalized_features
 
 
 
-# def get_file_list(root_dir):
-#     """
+def get_file_list(root_dir):
+    """
     
-#     """
-#     extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG']
-#     file_list = []
-#     for root, directories, filenames in os.walk(root_dir):
-#         for filename in filenames:
-#             if any(ext in filename for ext in extensions):
-#                 file_list.append(os.path.join(root, filename))
-#     print("-[INFO_get_file_list]-file_list--",file_list[0:5])
-#     return sorted(file_list)
+    """
+    extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG']
+    file_list = []
+    for root, directories, filenames in os.walk(root_dir):
+        for filename in filenames:
+            if any(ext in filename for ext in extensions):
+                file_list.append(os.path.join(root, filename))
+    print("-[INFO_get_file_list]-file_list--",file_list[0:5])
+    return sorted(file_list)
 
 
 # def classname(str):
@@ -264,22 +265,22 @@ from tensorflow.keras.layers import Input, Flatten, Dense, Dropout, GlobalAverag
 #     #     # We will use this line repeatedly in our code.
 
 
-# def get_all_files_df(root_dir,root_dir_label_name,file_extn_type=None):
-#     file_extn_type = ".png"
-#     file_names_list = []
-#     file_sub_dirs_list = []
+def get_all_files_df(root_dir,root_dir_label_name,file_extn_type=None):
+    file_extn_type = ".png"
+    file_names_list = []
+    file_sub_dirs_list = []
 
-#     for (dir_paths, dirs, files) in os.walk(root_dir):
-#         for file_to_be_found in files:
-#             if file_to_be_found.endswith(file_extn_type):
-#                 #file_list.append(os.path.join(paths, file))
-#                 file_names_list.append(file_to_be_found)
-#                 file_sub_dirs_list.append(os.path.join(dir_paths,file_to_be_found))
-#     df_img_paths = pd.DataFrame({'img_file_name':file_names_list,'sub_dir_path':file_sub_dirs_list,})
-#     print("----shape->>-df_img_paths--",df_img_paths.shape)
-#     df_img_paths["file_extn_type"]= file_extn_type
-#     df_img_paths.to_csv('df_img_paths.csv',mode='a',index=False) #
-#     #TODO-- mode Append careful large bloated DF >> CSV 
+    for (dir_paths, dirs, files) in os.walk(root_dir):
+        for file_to_be_found in files:
+            if file_to_be_found.endswith(file_extn_type):
+                #file_list.append(os.path.join(paths, file))
+                file_names_list.append(file_to_be_found)
+                file_sub_dirs_list.append(os.path.join(dir_paths,file_to_be_found))
+    df_img_paths = pd.DataFrame({'img_file_name':file_names_list,'sub_dir_path':file_sub_dirs_list,})
+    print("----shape->>-df_img_paths--",df_img_paths.shape)
+    df_img_paths["file_extn_type"]= file_extn_type
+    df_img_paths.to_csv('df_img_paths.csv',mode='a',index=False) #
+    #TODO-- mode Append careful large bloated DF >> CSV 
 
 
 
@@ -314,59 +315,65 @@ from tensorflow.keras.layers import Input, Flatten, Dense, Dropout, GlobalAverag
 #     return ls_similar_image_paths ,ls_distances
 
 
-# def get_fileNames_pickle(root_dir_1,str_cnst_caltech):
-#     """
+def get_fileNames_pickle(root_dir_1,str_cnst_caltech):
+    """
     
-#     """
-#     #write Pickle Files 
-#     ls_fileNames = get_file_list(root_dir_1)
-#     #sorted(get_file_list(root_dir_1)) ## Not Reqd
-#     pickle.dump(ls_fileNames, open('./pickle_files/'+str(str_cnst_caltech)+'_ls_fileNames_.pickle','wb'))
-#     return ls_fileNames
-
-# def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name):
-#     """
+    """
+    #write Pickle Files 
+    print("--get_fileNames_pickle----str_cnst_caltech-",str_cnst_caltech)
+    print("--get_fileNames_pickle----root_dir_1-",root_dir_1)
+    path_pickle = "/home/dhankar/temp/11_22/a______lightly_2/datasets/output_dir/pickle_files/"
     
-#     """
-#     print("-[INFO_get_img2vec]-STARTED--Extracting Features-->>")
-#     ls_feature = []
-#     #for iter_k in tqdm(range(len(ls_fileNames))): 
-#     for iter_k in tqdm(range(500)): #TODO -- Check and manually delete -->> ls_fileNames--ABOVE 
-#         #TODO -- hardcoded as 500 for test--#for i in tqdm(range(500)):
-#         print("--[INFO_get_img2vec]-STARTED---Extracting Contours ----->>")
-#         contours, hierarchy , img_init , max_cntr_area , max_cntr_perimeter = get_cntrs(ls_fileNames[iter_k])#,img_path)
-#         if isinstance(contours, str):
-#             print("--No cntrs--ERROR in get_cntrs---->>--type(contours)-",type(contours))
-#             pass
-#         else:
-#             file_name_img_cntrs = str(ls_fileNames[iter_k]).split('/')[-1]
-#             #print("---type--cntrs----",type(contours)) # Lists TODO - dont draw - get validation from Contours 
-#             print("---LEN-cntrs----",len(contours))
-            
-#             # Only Draw -- max_cntr_area 
-#             img_max_area_cntr , img_cntrs_type = draw_cntrs(max_cntr_area,img_init) # 
-#             print("--TEST---aa---type(img_max_area_cntr)----",type(img_max_area_cntr))
-#             img_cntrs_type = "max_area_cntr"
-#             path_img_cntrs = save_img_cntrs(img_max_area_cntr,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
-            
-#             # Only Draw -- max_cntr_perimeter
-#             max_cntr_perimeter = max_cntr_perimeter[0] ## Its a SORTED List of Numpy Arrays 
-#             img_max_perimeter_cntr , img_cntrs_type = draw_cntrs(max_cntr_perimeter,img_init) # 
-#             print("--TEST---aa---type(img_max_perimeter_cntr)----",type(img_max_perimeter_cntr))
-#             img_cntrs_type = "max_perimeter_cntr"
-#             path_img_cntrs = save_img_cntrs(img_max_perimeter_cntr,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
-            
-#             # Draw All Countours 
-#             img_cntrs , img_cntrs_type = draw_cntrs(contours,img_init) # If Lists LEN ==0 TODO - dont draw - get validation from Contours 
-#             img_cntrs_type = "all_cntrs"
-#             path_img_cntrs = save_img_cntrs(img_cntrs,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
+    ls_fileNames = get_file_list(root_dir_1)
+    #sorted(get_file_list(root_dir_1)) ## Not Reqd
+    #pickle.dump(ls_fileNames, open('./datasets/output_dir/pickle_files/'+str(str_cnst_caltech)+'_ls_fileNames_.pickle','wb'))
+    #pickle.dump(ls_fileNames, open('./datasets/output_dir/pickle_files/file_1_ls_fileNames_.pickle','wb'))
+    pickle.dump(ls_fileNames, open(path_pickle+'file_1_ls_fileNames_.pickle','wb'))
+    return ls_fileNames
 
-#         ls_feature.append(extract_features(ls_fileNames[iter_k],model_archType))  
-#     print("---get_img2vec--len(ls_feature----",len(ls_feature))
-#     print("----get_img2vec-len(ls_feature[0]----",len(ls_feature[0]))
-#     pickle.dump(ls_feature, open('./pickle_files/'+str(str_cnst_caltech)+'_img2vec_.pickle', 'wb'))
-#     print("----get_img2vec---Pickle File Written--->>\n",str(str_cnst_caltech)+'_img2vec_.pickle')
-#     return ls_feature
+def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name):
+    """
+    
+    """
+    print("-[INFO_get_img2vec]-STARTED--Extracting Features-->>")
+    ls_feature = []
+    #for iter_k in tqdm(range(len(ls_fileNames))): 
+    for iter_k in tqdm(range(50)): #TODO -- Check and manually delete -->> ls_fileNames--ABOVE 
+        #TODO -- hardcoded as 500 for test--#for i in tqdm(range(500)):
+        print("--[INFO_get_img2vec]-STARTED---Extracting Contours ----->>")
+        contours, hierarchy , img_init , max_cntr_area , max_cntr_perimeter = get_cntrs(ls_fileNames[iter_k])#,img_path)
+        if isinstance(contours, str):
+            print("--No cntrs--ERROR in get_cntrs---->>--type(contours)-",type(contours))
+            pass
+        else:
+            file_name_img_cntrs = str(ls_fileNames[iter_k]).split('/')[-1]
+            #print("---type--cntrs----",type(contours)) # Lists TODO - dont draw - get validation from Contours 
+            print("---LEN-cntrs----",len(contours))
+            
+            # Only Draw -- max_cntr_area 
+            img_max_area_cntr , img_cntrs_type = draw_cntrs(max_cntr_area,img_init) # 
+            print("--TEST---aa---type(img_max_area_cntr)----",type(img_max_area_cntr))
+            img_cntrs_type = "max_area_cntr"
+            path_img_cntrs = save_img_cntrs(img_max_area_cntr,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
+            
+            # Only Draw -- max_cntr_perimeter
+            max_cntr_perimeter = max_cntr_perimeter[0] ## Its a SORTED List of Numpy Arrays 
+            img_max_perimeter_cntr , img_cntrs_type = draw_cntrs(max_cntr_perimeter,img_init) # 
+            print("--TEST---aa---type(img_max_perimeter_cntr)----",type(img_max_perimeter_cntr))
+            img_cntrs_type = "max_perimeter_cntr"
+            path_img_cntrs = save_img_cntrs(img_max_perimeter_cntr,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
+            
+            # Draw All Countours 
+            img_cntrs , img_cntrs_type = draw_cntrs(contours,img_init) # If Lists LEN ==0 TODO - dont draw - get validation from Contours 
+            img_cntrs_type = "all_cntrs"
+            path_img_cntrs = save_img_cntrs(img_cntrs,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
+
+        ls_feature.append(extract_features(ls_fileNames[iter_k],model_archType))  
+    print("---get_img2vec--len(ls_feature----",len(ls_feature))
+    print("----get_img2vec-len(ls_feature[0]----",len(ls_feature[0]))
+    pickle.dump(ls_feature, open('./pickle_files/'+str(str_cnst_caltech)+'_img2vec_.pickle', 'wb'))
+    print("----get_img2vec---Pickle File Written--->>\n",str(str_cnst_caltech)+'_img2vec_.pickle')
+    return ls_feature
 
 # def read_ftrs_pickle(str_cnst_caltech):
 #     # Reading from Pickled Files 
@@ -382,38 +389,39 @@ from tensorflow.keras.layers import Input, Flatten, Dense, Dropout, GlobalAverag
 #     return ls_fileNames
     
 
-# if __name__ == "__main__":
-#     model_archType = 'resnet'
-#     model_archType = model_picker(model_archType)
+if __name__ == "__main__":
+    model_archType = 'resnet'
+    model_archType = model_picker(model_archType)
 
-#     from datetime import datetime
-#     dt_time_now = datetime.now()
-#     #minute_now = dt_time_now.strftime("_%m_%d_%Y_%H_%M")
-#     #print("Num GPUs Available: ", len(tensorflow.config.list_physical_devices('GPU')))
-#     # input data path -- cropped_images
+    from datetime import datetime
+    dt_time_now = datetime.now()
+    minute_now = dt_time_now.strftime("_%m_%d_%Y_%H_%M")
+    print("Num GPUs Available: ", len(tensorflow.config.list_physical_devices('GPU')))
 
-#     root_dir_1 = "./datasets/input_dir/imgs/knn_imgs/TODO_DATE_HRS_DIR_names" # TODO
+    # input data path -- cropped_images
+    root_dir_1 = "./datasets/input_dir/imgs/knn_imgs/faces_1" # TODO
     
-#     root_dir_label_name = root_dir_1.split('/')[-2] 
-#     print("----root_dir_label_name-",root_dir_label_name)
-#     str_cnst_caltech = "caltech_nn_"+str(root_dir_label_name)#+str(minute_now) #
-#     # TODO -- Fails as next Min Read Pickle has new name 
+    root_dir_label_name = root_dir_1.split('/')[-2] 
+    print("----root_dir_label_name-",root_dir_label_name)
+    str_cnst_caltech = "caltech_nn_"+str(root_dir_label_name)#+str(minute_now) #
+    # TODO -- Fails as next Min Read Pickle has new name 
 
     
-#     # TODO -- toggle below code 
-#     # ls_fileNames = get_fileNames_pickle(root_dir_1,str_cnst_caltech)
-#     # ls_ftrs = get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name)
+    # TODO -- toggle below code 
+    ls_fileNames = get_fileNames_pickle(root_dir_1,str_cnst_caltech)
+    print("---main---ls_fileNames----",len(ls_fileNames))
+    ls_ftrs = get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name)
 
-#     # TODO -- toggle below code 
-#     ls_fileNames = read_fName_pickle(str_cnst_caltech)
-#     ls_ftrs = read_ftrs_pickle(str_cnst_caltech)
-#     neighbors = NearestNeighbors(n_neighbors=5, algorithm='brute',metric='euclidean').fit(ls_ftrs)
-#     ls_similar_image_paths ,ls_distances  = query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
-#     print("----LEN(--ls_similar_image_paths----------",len(ls_similar_image_paths))
+    # # TODO -- toggle below code 
+    # ls_fileNames = read_fName_pickle(str_cnst_caltech)
+    # ls_ftrs = read_ftrs_pickle(str_cnst_caltech)
+    # neighbors = NearestNeighbors(n_neighbors=5, algorithm='brute',metric='euclidean').fit(ls_ftrs)
+    # ls_similar_image_paths ,ls_distances  = query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
+    # print("----LEN(--ls_similar_image_paths----------",len(ls_similar_image_paths))
 
-#     meta_data_df = plot_nn_images(ls_similar_image_paths ,ls_distances,root_dir_label_name)
+    # meta_data_df = plot_nn_images(ls_similar_image_paths ,ls_distances,root_dir_label_name)
 
-#     file_extn_type = ".png"
-#     get_all_files_df(root_dir_1,root_dir_label_name,file_extn_type)
+    # file_extn_type = ".png"
+    # get_all_files_df(root_dir_1,root_dir_label_name,file_extn_type)
 
-#     #TODO -- NotRequired>> wrapper_plot_nn_images(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
+    # #TODO -- NotRequired>> wrapper_plot_nn_images(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
