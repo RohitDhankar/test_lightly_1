@@ -1,66 +1,102 @@
-(tensorflow_gpuenv) dhankar@dhankar-1:~/.../__ext_code$ 
-(tensorflow_gpuenv) dhankar@dhankar-1:~/.../__ext_code$ python knn_notLightly.py > ../__run_logs/test_1.log
-2023-06-03 23:30:49.720016: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
-2023-06-03 23:30:49.751095: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.751330: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
-pciBusID: 0000:01:00.0 name: GeForce GTX 1650 computeCapability: 7.5
-coreClock: 1.71GHz coreCount: 14 deviceMemorySize: 3.82GiB deviceMemoryBandwidth: 119.24GiB/s
-2023-06-03 23:30:49.751496: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
-2023-06-03 23:30:49.752697: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
-2023-06-03 23:30:49.753781: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
-2023-06-03 23:30:49.753998: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
-2023-06-03 23:30:49.755044: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
-2023-06-03 23:30:49.755620: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
-2023-06-03 23:30:49.757913: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
-2023-06-03 23:30:49.758036: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.758288: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.758478: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
-2023-06-03 23:30:49.758689: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
-2023-06-03 23:30:49.762694: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 3000000000 Hz
-2023-06-03 23:30:49.762946: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55ec325460d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-06-03 23:30:49.762960: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-06-03 23:30:49.763152: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.763369: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties: 
-pciBusID: 0000:01:00.0 name: GeForce GTX 1650 computeCapability: 7.5
-coreClock: 1.71GHz coreCount: 14 deviceMemorySize: 3.82GiB deviceMemoryBandwidth: 119.24GiB/s
-2023-06-03 23:30:49.763419: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
-2023-06-03 23:30:49.763433: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
-2023-06-03 23:30:49.763446: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
-2023-06-03 23:30:49.763459: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
-2023-06-03 23:30:49.763472: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
-2023-06-03 23:30:49.763484: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
-2023-06-03 23:30:49.763497: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
-2023-06-03 23:30:49.763537: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.763730: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.763907: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
-2023-06-03 23:30:49.763947: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
-2023-06-03 23:30:49.811671: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
-2023-06-03 23:30:49.811709: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 
-2023-06-03 23:30:49.811715: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N 
-2023-06-03 23:30:49.811932: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.812170: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.812377: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2023-06-03 23:30:49.812565: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3131 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5)
-2023-06-03 23:30:49.813800: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55ec34036010 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2023-06-03 23:30:49.813811: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1650, Compute Capability 7.5
-  0%|                                                                                                                  | 0/50 [00:00<?, ?it/s]
+2023-06-03 23:52:19.933483: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N 
+2023-06-03 23:52:19.933633: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-06-03 23:52:19.933863: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-06-03 23:52:19.934068: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2023-06-03 23:52:19.934256: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 3126 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5)
+2023-06-03 23:52:19.935540: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55c688a44f40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-06-03 23:52:19.935554: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1650, Compute Capability 7.5
+  0%|                                                                                                                  | 0/20 [00:00<?, ?it/s]2023-06-03 23:52:23.181780: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2023-06-03 23:52:26.307746: E tensorflow/stream_executor/cuda/cuda_dnn.cc:329] Could not create cudnn handle: CUDNN_STATUS_INTERNAL_ERROR
+2023-06-03 23:52:26.319641: E tensorflow/stream_executor/cuda/cuda_dnn.cc:329] Could not create cudnn handle: CUDNN_STATUS_INTERNAL_ERROR
+  0%|                                                                                                                  | 0/20 [00:04<?, ?it/s]
 Traceback (most recent call last):
-  File "knn_notLightly.py", line 413, in <module>
+  File "__ext_code/knn_notLightly.py", line 418, in <module>
     ls_ftrs = get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name)
-  File "knn_notLightly.py", line 344, in get_img2vec
-    contours, hierarchy , img_init , max_cntr_area , max_cntr_perimeter = get_cntrs(ls_fileNames[iter_k])#,img_path)
-IndexError: list index out of range
-(tensorflow_gpuenv) dhankar@dhankar-1:~/.../__ext_code$ 
-(tensorflow_gpuenv) dhankar@dhankar-1:~/.../__ext_code$ 
+  File "__ext_code/knn_notLightly.py", line 376, in get_img2vec
+    ls_feature.append(extract_features(ls_fileNames[iter_k],model_archType))  
+  File "__ext_code/knn_notLightly.py", line 112, in extract_features
+    features = model.predict(preprocessed_img)
+  File "/home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/tensorflow/python/keras/engine/training.py", line 88, in _method_wrapper
+    return method(self, *args, **kwargs)
+  File "/home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/tensorflow/python/keras/engine/training.py", line 1268, in predict
+    tmp_batch_outputs = predict_function(iterator)
+  File "/home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/tensorflow/python/eager/def_function.py", line 580, in __call__
+    result = self._call(*args, **kwds)
+  File "/home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/tensorflow/python/eager/def_function.py", line 650, in _call
+    return self._concrete_stateful_fn._filtered_call(canon_args, canon_kwds)  # pylint: disable=protected-access
+  File "/home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/tensorflow/python/eager/function.py", line 1661, in _filtered_call
+    return self._call_flat(
+  File "/home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/tensorflow/python/eager/function.py", line 1745, in _call_flat
+    return self._build_call_outputs(self._inference_function.call(
+  File "/home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/tensorflow/python/eager/function.py", line 593, in call
+    outputs = execute.execute(
+  File "/home/dhankar/anaconda3/envs/tensorflow_gpuenv/lib/python3.8/site-packages/tensorflow/python/eager/execute.py", line 59, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.UnknownError:  Failed to get convolution algorithm. This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.
+	 [[node resnet50/conv1_conv/Conv2D (defined at __ext_code/knn_notLightly.py:112) ]] [Op:__inference_predict_function_8013]
+
+Function call stack:
+predict_function
+
+(tensorflow_gpuenv) dhankar@dhankar-1:~/.../a______lightly_2$ 
+
+
+
+
+
+
 
 
 
 ----Type(model--- <class 'tensorflow.python.keras.engine.training.Model'>
 Num GPUs Available:  1
-----root_dir_label_name- knn_imgs
---get_fileNames_pickle----str_cnst_caltech- caltech_nn_knn_imgs
---get_fileNames_pickle----root_dir_1- ./datasets/input_dir/imgs/knn_imgs/faces_1
--[INFO_get_file_list]-file_list-- []
----main---ls_fileNames---- 0
+----root_dir_label_name- faces_1
+--get_fileNames_pickle----str_cnst_caltech- caltech_nn_faces_1
+--get_fileNames_pickle----root_dir_1- ./datasets/input_dir/imgs/knn_imgs/faces_1/
+-[INFO_get_file_list]-file_list-- ['./datasets/input_dir/imgs/knn_imgs/faces_1/image_0017.jpg', './datasets/input_dir/imgs/knn_imgs/faces_1/image_0018.jpg', './datasets/input_dir/imgs/knn_imgs/faces_1/image_0025.jpg', './datasets/input_dir/imgs/knn_imgs/faces_1/image_0003.jpg', './datasets/input_dir/imgs/knn_imgs/faces_1/image_0009.jpg']
+---main---ls_fileNames---- 29
 -[INFO_get_img2vec]-STARTED--Extracting Features-->>
---[INFO_get_img2vec]-STARTED---Extracting Contours ----->>
+---get_img2vec---len(ls_fileNames)- 29
+--[INFO_get_img2vec]-STARTED---Extracting Contours ----->> 0
+-[INFO_get_cntrs]-img_init.shape-- (334, 290, 3)
+-[INFO_get_cntrs]--type(max_cntr_area-- <class 'numpy.ndarray'>
+-[INFO_get_cntrs]--max_cntr_area-- [[[ 0  0]]
+
+ [[ 0  7]]
+
+ [[ 1  7]]
+
+ ...
+
+ [[ 6 22]]
+
+ [[ 7 21]]
+
+ [[ 7  0]]]
+-[INFO_get_cntrs]--type(max_cntr_perimeter--- <class 'list'>
+-[INFO_get_cntrs]--type(max_cntr_perimeter--- 289
+-[INFO_get_cntrs]--max_cntr_perimeter--- [[[ 0  0]]
+
+ [[ 0  7]]
+
+ [[ 1  7]]
+
+ ...
+
+ [[ 6 22]]
+
+ [[ 7 21]]
+
+ [[ 7  0]]]
+---LEN-cntrs---- 289
+---img_init.shape---- (334, 290, 3)
+--TEST---aa---type(img_max_area_cntr)---- <class 'numpy.ndarray'>
+---path_img_cntrs----
+ ./output_dir/knn_similar_images/faces_1/max_area_cntr/image
+---img_init.shape---- (334, 290, 3)
+--TEST---aa---type(img_max_perimeter_cntr)---- <class 'numpy.ndarray'>
+---path_img_cntrs----
+ ./output_dir/knn_similar_images/faces_1/max_perimeter_cntr/image
+---img_init.shape---- (334, 290, 3)
+---path_img_cntrs----
+ ./output_dir/knn_similar_images/faces_1/all_cntrs/image

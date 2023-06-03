@@ -317,6 +317,7 @@ def get_all_files_df(root_dir,root_dir_label_name,file_extn_type=None):
 
 def get_fileNames_pickle(root_dir_1,str_cnst_caltech):
     """
+    probably no need to Pickle ? 
     
     """
     #write Pickle Files 
@@ -328,7 +329,7 @@ def get_fileNames_pickle(root_dir_1,str_cnst_caltech):
     #sorted(get_file_list(root_dir_1)) ## Not Reqd
     #pickle.dump(ls_fileNames, open('./datasets/output_dir/pickle_files/'+str(str_cnst_caltech)+'_ls_fileNames_.pickle','wb'))
     #pickle.dump(ls_fileNames, open('./datasets/output_dir/pickle_files/file_1_ls_fileNames_.pickle','wb'))
-    pickle.dump(ls_fileNames, open(path_pickle+'file_1_ls_fileNames_.pickle','wb'))
+    #pickle.dump(ls_fileNames, open(path_pickle+'file_1_ls_fileNames_.pickle','wb'))
     return ls_fileNames
 
 def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name):
@@ -336,11 +337,15 @@ def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name
     
     """
     print("-[INFO_get_img2vec]-STARTED--Extracting Features-->>")
+    print("---get_img2vec---len(ls_fileNames)-",len(ls_fileNames))
+
     ls_feature = []
     #for iter_k in tqdm(range(len(ls_fileNames))): 
-    for iter_k in tqdm(range(50)): #TODO -- Check and manually delete -->> ls_fileNames--ABOVE 
+    for iter_k in tqdm(range(20)): #TODO -- Check and manually delete -->> ls_fileNames--ABOVE 
         #TODO -- hardcoded as 500 for test--#for i in tqdm(range(500)):
-        print("--[INFO_get_img2vec]-STARTED---Extracting Contours ----->>")
+        print("--[INFO_get_img2vec]-STARTED---Extracting Contours ----->>",iter_k)
+
+
         contours, hierarchy , img_init , max_cntr_area , max_cntr_perimeter = get_cntrs(ls_fileNames[iter_k])#,img_path)
         if isinstance(contours, str):
             print("--No cntrs--ERROR in get_cntrs---->>--type(contours)-",type(contours))
@@ -399,7 +404,7 @@ if __name__ == "__main__":
     print("Num GPUs Available: ", len(tensorflow.config.list_physical_devices('GPU')))
 
     # input data path -- cropped_images
-    root_dir_1 = "./datasets/input_dir/imgs/knn_imgs/faces_1" # TODO
+    root_dir_1 = "./datasets/input_dir/imgs/knn_imgs/faces_1/" # TODO
     
     root_dir_label_name = root_dir_1.split('/')[-2] 
     print("----root_dir_label_name-",root_dir_label_name)
