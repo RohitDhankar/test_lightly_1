@@ -344,7 +344,7 @@ def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name
 
     ls_feature = []
     #for iter_k in tqdm(range(len(ls_fileNames))): 
-    for iter_k in tqdm(range(20)): #TODO -- Check and manually delete -->> ls_fileNames--ABOVE 
+    for iter_k in tqdm(range(5)): #TODO -- Check and manually delete -->> ls_fileNames--ABOVE 
         #TODO -- hardcoded as 500 for test--#for i in tqdm(range(500)):
         print("--[INFO_get_img2vec]-STARTED---Extracting Contours ----->>",iter_k)
 
@@ -379,6 +379,7 @@ def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name
         ls_feature.append(extract_features(ls_fileNames[iter_k],model_archType))  
     print("---get_img2vec--len(ls_feature----",len(ls_feature))
     print("----get_img2vec-len(ls_feature[0]----",len(ls_feature[0]))
+    
     pickle.dump(ls_feature, open('./pickle_files/'+str(str_cnst_caltech)+'_img2vec_.pickle', 'wb'))
     print("----get_img2vec---Pickle File Written--->>\n",str(str_cnst_caltech)+'_img2vec_.pickle')
     return ls_feature
