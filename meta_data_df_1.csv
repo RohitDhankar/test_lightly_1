@@ -1,0 +1,5 @@
+,similar_img_name,copy_to_path,k_near_img
+0,./datasets/input_dir/imgs/knn_imgs/faces_1/image_0003.jpg,./output_dir/knn_plots/faces_1/image/image_0003.jpg,image_0003.jpg
+1,./datasets/input_dir/imgs/knn_imgs/faces_1/image_0005.jpg,./output_dir/knn_plots/faces_1/image/image_0005.jpg,image_0005.jpg
+2,./datasets/input_dir/imgs/knn_imgs/faces_1/image_0002.jpg,./output_dir/knn_plots/faces_1/image/image_0002.jpg,image_0002.jpg
+3,./datasets/input_dir/imgs/knn_imgs/faces_1/image_0001.jpg,./output_dir/knn_plots/faces_1/image/image_0001.jpg,image_0001.jpg

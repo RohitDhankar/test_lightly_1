@@ -24,14 +24,14 @@ def get_cntrs(img_for_cntrs):#,img_path):
         max_cntr_area = max(contours, key = cv2.contourArea)
         #ERROR >> max() arg is an empty sequence
         print("-[INFO_get_cntrs]--type(max_cntr_area--",type(max_cntr_area))
-        print("-[INFO_get_cntrs]--max_cntr_area--",max_cntr_area)
+        #print("-[INFO_get_cntrs]--max_cntr_area--",max_cntr_area) # Dont large Print 
         #x,y,w,h = cv2.boundingRect(c)
         max_cntr_perimeter = sorted(contours, key = lambda indl_cntr : cv2.arcLength(indl_cntr , False),reverse = True) 
         #ERROR >> arcLength() missing required argument 'closed' (pos 2) == SOLVED == reverse = True
         #ERROR >> arcLength() missing required argument 'curve' (pos 1)
         print("-[INFO_get_cntrs]--type(max_cntr_perimeter---",type(max_cntr_perimeter)) ## <class 'list'> -- LIST of ndArays
         print("-[INFO_get_cntrs]--type(max_cntr_perimeter---",len(max_cntr_perimeter)) #
-        print("-[INFO_get_cntrs]--max_cntr_perimeter---",max_cntr_perimeter[0])
+        #print("-[INFO_get_cntrs]--max_cntr_perimeter---",max_cntr_perimeter[0])
         return contours, hierarchy , img_init , max_cntr_area , max_cntr_perimeter
 
     except Exception as err_get_cntrs:

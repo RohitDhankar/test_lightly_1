@@ -1,3 +1,6 @@
+## TODO - n_neighbors=10 , range(1, 7)]
+
+
 # conda activate tensorflow_gpuenv
 
 #GIT... Practical Deep Learn -- https://github.com/PracticalDL/Practical-Deep-Learning-Book
@@ -135,8 +138,13 @@ def get_file_list(root_dir):
         for filename in filenames:
             if any(ext in filename for ext in extensions):
                 file_list.append(os.path.join(root, filename))
-    print("-[INFO_get_file_list]-file_list--",file_list[0:5])
-    return sorted(file_list)
+    print("[INFO_get_file_list]-file_list--",file_list[0:5])
+    
+    ls_sorted = sorted(file_list)
+    print("[INFO_get_file_list]-len(ls_sorted)--",len(ls_sorted))
+    print("[INFO_get_file_list]-ls_sorted--",ls_sorted[0:5])
+
+    return ls_sorted
 
 
 # def classname(str):
@@ -158,47 +166,49 @@ def plot_nn_images(ls_similar_image_paths ,ls_distances,root_dir_label_name):
     # Function to plot the nearest images given a query image
     """
     import shutil , os 
-    # from datetime import datetime
-    # dt_time_now = datetime.now()
-    # hour_now = dt_time_now.strftime("_%m_%d_%Y_%H")
+    from datetime import datetime
+    dt_time_now = datetime.now()
+    hour_now = dt_time_now.strftime("_%m_%d_%Y_%H")
 
     ls_similar_img_name = []
     ls_copy_to_path = []
     ls_k_near_img = []
 
     meta_data_df = pd.DataFrame()
+    print("[INFO_plot_nn_images--len(ls_similar_image_paths)---",len(ls_similar_image_paths))
     for iter_k in range(len(ls_similar_image_paths)):
         for similar_img_name in ls_similar_image_paths[iter_k]:
             print("--plot_nn_images-similar_image_paths--NOW-->>ls_similar_image_paths[iter_k]--",ls_similar_image_paths[iter_k])
             print("---plot_nn_images--similar_img_name---",similar_img_name)
             k_near_img = similar_img_name.split('/')[-1] 
-            print("---plot_nn_images--k_near_img--->>\n",k_near_img)
+            print("---plot_nn_images--k_near_img--->>",k_near_img)
             init_query_img = ls_similar_image_paths[iter_k][0].split('/')[-1] 
-            print("---plot_nn_images--init_query_img--->>\n",init_query_img) # TODO -- main -- Copy to a DIR NAME with Minutes and -MAIN QUERY IMAGE FileName
-            query_img = init_query_img.split('_')[0] 
-            print("---plot_nn_images--query_img---->>\n",query_img)
+            print("---plot_nn_images--init_query_img--->>",init_query_img) # TODO -- main -- Copy to a DIR NAME with Minutes and -MAIN QUERY IMAGE FileName
+            init_query_img_1 = init_query_img.split('.')[0] 
+            print("---plot_nn_images--init_query_img_1---->>",init_query_img_1)
 
             dt_time_now = datetime.now() 
             #hour_now = dt_time_now.strftime("_%m_%d_%Y_%H_/")
-            query_img_dir_path = "./output_dir/knn_plots/"+str(root_dir_label_name)+"/"+str(query_img)+"/"
-            print("---query_img_dir_path----\n",query_img_dir_path)
+            query_img_dir_path = "./output_dir/knn_plots_1/"+str(root_dir_label_name)+"/"+str(hour_now)+"/"+str(init_query_img_1)+"/"
+            print("---query_img_dir_path---",query_img_dir_path)
             #hourly_dir = os.path.join(crop_img_dir_path)
             if not os.path.exists(query_img_dir_path):
                 os.makedirs(query_img_dir_path)
-            print("---COPY THIS ---",similar_img_name)
-            copy_to_path = str(query_img_dir_path)+str(k_near_img)
+            print("-COPY_THIS-similar_img_name--",similar_img_name)
+            copy_to_path = str(query_img_dir_path)#+str(init_query_img) # TODO -- main -- Copy to a DIR NAME with Minutes and -MAIN QUERY IMAGE FileName
             print("---COPY HERE ----copy_to_path----",copy_to_path)
-            shutil.copyfile(similar_img_name, copy_to_path)
+            #shutil.copyfile(similar_img_name, copy_to_path)
+            shutil.copy(similar_img_name, copy_to_path)
             ls_copy_to_path.append(copy_to_path)
             ls_similar_img_name.append(similar_img_name)
             ls_k_near_img.append(k_near_img)
             #
-        meta_data_df["similar_img_name"] = ls_similar_img_name
-        meta_data_df["copy_to_path"] = ls_copy_to_path
-        meta_data_df["k_near_img"] = ls_k_near_img
+        # meta_data_df["similar_img_name"] = ls_similar_img_name
+        # meta_data_df["copy_to_path"] = ls_copy_to_path
+        # meta_data_df["k_near_img"] = ls_k_near_img
         
-        output_path='meta_data_df_1.csv'
-        meta_data_df.to_csv(output_path, mode='a', header=not os.path.exists(output_path))
+        # output_path='meta_data_df_1.csv'
+        # meta_data_df.to_csv(output_path, mode='a', header=not os.path.exists(output_path))
 
     return meta_data_df # for writing to the Meta Data DF in separate call 
 
@@ -293,23 +303,24 @@ def query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name):
     (weight is contribution of each feature -->> pca.explained_variance_ratio_ )
     """
     print("---query_img_neighbors----LEN(ls_ftrs----",len(ls_ftrs))
-    print("---query_img_neighbors----LEN(ls_fileNames----",len(ls_fileNames))
+    print("---query_img_neighbors----LEN(ls_fileNames----",len(ls_fileNames)) #435
     ls_similar_image_paths = []
     ls_distances = []
 
-    num_images = 5 #TODO --Not defined in BOOK Code - so its PROBABLY TOTAL IMAGES Count ??
+    num_images = len(ls_fileNames) #TODO --Not defined in BOOK Code - so its PROBABLY TOTAL IMAGES Count ??
     for iter_k in range(num_images):
         print("-query_img_neighbors--iter---",iter_k)
+        print("-query_img_neighbors--ls_fileNames[iter_k]-IMAGE_NAME-",ls_fileNames[iter_k])
         random_image_index = random.randint(0, num_images-1) #picks any Random Img Indx -- max val == num_images -1 , changes on every run can be same INT VALUE more than once. 
         print("---random_image_index--",random_image_index) #random_image_index = always 1 less than total count of Images == num_images
         
         distances, indices = neighbors.kneighbors([ls_ftrs[random_image_index]])
-        print("--query_img_neighbors---distances--",distances)
-        print("--query_img_neighbors---indices--",indices)
+        print("--query_img_neighbors---distances--",distances) # List of LISTS - 1 ELE which is a NESTED LIST 
+        print("--query_img_neighbors---indices--",indices) # List of LISTS - 1 ELE which is a NESTED LIST 
         # # Don't take the first closest image as it will be the same image
         # print("----Query_Image--Same IMAGE--",ls_fileNames[indices[0][iter_k]])
-        similar_image_paths = [ls_fileNames[random_image_index]] + [ls_fileNames[indices[0][iter_j]] for iter_j in range(1, 4)] # 4
-        print("---len(similar_image_paths--",len(similar_image_paths))
+        similar_image_paths = [ls_fileNames[random_image_index]] + [ls_fileNames[indices[0][iter_j]] for iter_j in range(1, 7)] # 4
+        print("---len(similar_image_paths--",len(similar_image_paths)) # Always - 4 as above line -- range(1, 4)
         print("---similar_image_paths--",similar_image_paths)
         ls_similar_image_paths.append(similar_image_paths)
         print("----distances[0]----",distances[0])
@@ -325,7 +336,7 @@ def get_fileNames_pickle(root_dir_1,str_cnst_caltech):
     #write Pickle Files 
     print("--get_fileNames_pickle----str_cnst_caltech-",str_cnst_caltech)
     print("--get_fileNames_pickle----root_dir_1-",root_dir_1)
-    path_pickle = "/home/dhankar/temp/11_22/a______lightly_2/datasets/output_dir/pickle_files/"
+    #path_pickle = "/home/dhankar/temp/11_22/a______lightly_2/datasets/output_dir/pickle_files/"
     
     ls_fileNames = get_file_list(root_dir_1)
     #sorted(get_file_list(root_dir_1)) ## Not Reqd
@@ -334,54 +345,36 @@ def get_fileNames_pickle(root_dir_1,str_cnst_caltech):
     #pickle.dump(ls_fileNames, open(path_pickle+'file_1_ls_fileNames_.pickle','wb'))
     return ls_fileNames
 
-def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name):
-    """
-    
-    """
-    print("-[INFO_get_img2vec]-STARTED--Extracting Features-->>")
-    print("---get_img2vec---len(ls_fileNames)-",len(ls_fileNames))
 
-    ls_feature = []
-    #for iter_k in tqdm(range(len(ls_fileNames))): 
-    for iter_k in tqdm(range(5)): #TODO -- Check and manually delete -->> ls_fileNames--ABOVE 
-        #TODO -- hardcoded as 500 for test--#for i in tqdm(range(500)):
-        print("--[INFO_get_img2vec]-STARTED---Extracting Contours ----->>",iter_k)
+        #contours, hierarchy , img_init , max_cntr_area , max_cntr_perimeter = get_cntrs(ls_fileNames[iter_k])#,img_path)
 
-
-        contours, hierarchy , img_init , max_cntr_area , max_cntr_perimeter = get_cntrs(ls_fileNames[iter_k])#,img_path)
-        if isinstance(contours, str):
-            print("--No cntrs--ERROR in get_cntrs---->>--type(contours)-",type(contours))
-            pass
-        else:
-            file_name_img_cntrs = str(ls_fileNames[iter_k]).split('/')[-1]
-            #print("---type--cntrs----",type(contours)) # Lists TODO - dont draw - get validation from Contours 
-            print("---LEN-cntrs----",len(contours))
+        # if isinstance(contours, str):
+        #     print("--No cntrs--ERROR in get_cntrs---->>--type(contours)-",type(contours))
+        #     pass
+        #else:
+            # file_name_img_cntrs = str(ls_fileNames[iter_k]).split('/')[-1]
+            # #print("---type--cntrs----",type(contours)) # Lists TODO - dont draw - get validation from Contours 
+            # print("---LEN-cntrs----",len(contours))
             
-            # Only Draw -- max_cntr_area 
-            img_max_area_cntr , img_cntrs_type = draw_cntrs(max_cntr_area,img_init) # 
-            print("--TEST---aa---type(img_max_area_cntr)----",type(img_max_area_cntr))
-            img_cntrs_type = "max_area_cntr"
-            path_img_cntrs = save_img_cntrs(img_max_area_cntr,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
+            # # # Only Draw -- max_cntr_area 
+            # # img_max_area_cntr , img_cntrs_type = draw_cntrs(max_cntr_area,img_init) # 
+            # # print("--TEST---aa---type(img_max_area_cntr)----",type(img_max_area_cntr))
+            # # img_cntrs_type = "max_area_cntr"
+            # # path_img_cntrs = save_img_cntrs(img_max_area_cntr,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
             
-            # Only Draw -- max_cntr_perimeter
-            max_cntr_perimeter = max_cntr_perimeter[0] ## Its a SORTED List of Numpy Arrays 
-            img_max_perimeter_cntr , img_cntrs_type = draw_cntrs(max_cntr_perimeter,img_init) # 
-            print("--TEST---aa---type(img_max_perimeter_cntr)----",type(img_max_perimeter_cntr))
-            img_cntrs_type = "max_perimeter_cntr"
-            path_img_cntrs = save_img_cntrs(img_max_perimeter_cntr,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
+            # # # Only Draw -- max_cntr_perimeter
+            # # max_cntr_perimeter = max_cntr_perimeter[0] ## Its a SORTED List of Numpy Arrays 
+            # # img_max_perimeter_cntr , img_cntrs_type = draw_cntrs(max_cntr_perimeter,img_init) # 
+            # # print("--TEST---aa---type(img_max_perimeter_cntr)----",type(img_max_perimeter_cntr))
+            # # img_cntrs_type = "max_perimeter_cntr"
+            # # path_img_cntrs = save_img_cntrs(img_max_perimeter_cntr,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
             
-            # Draw All Countours 
-            img_cntrs , img_cntrs_type = draw_cntrs(contours,img_init) # If Lists LEN ==0 TODO - dont draw - get validation from Contours 
-            img_cntrs_type = "all_cntrs"
-            path_img_cntrs = save_img_cntrs(img_cntrs,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
+            # # # Draw All Countours 
+            # # img_cntrs , img_cntrs_type = draw_cntrs(contours,img_init) # If Lists LEN ==0 TODO - dont draw - get validation from Contours 
+            # # img_cntrs_type = "all_cntrs"
+            # # path_img_cntrs = save_img_cntrs(img_cntrs,root_dir_label_name,file_name_img_cntrs,img_cntrs_type)
 
-        ls_feature.append(extract_features(ls_fileNames[iter_k],model_archType))  
-    print("---get_img2vec--len(ls_feature----",len(ls_feature))
-    print("----get_img2vec-len(ls_feature[0]----",len(ls_feature[0]))
-    
-    #pickle.dump(ls_feature, open('./pickle_files/'+str(str_cnst_caltech)+'_img2vec_.pickle', 'wb'))
-    #print("----get_img2vec---Pickle File Written--->>\n",str(str_cnst_caltech)+'_img2vec_.pickle')
-    return ls_feature
+
 
 # def read_ftrs_pickle(str_cnst_caltech):
 #     # Reading from Pickled Files 
@@ -395,6 +388,23 @@ def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name
 #     ls_fileNames = pickle.load(open('./pickle_files/'+str(str_cnst_caltech)+'_ls_fileNames_.pickle','rb'))
 #     print("----Type(filenames---",type(ls_fileNames)) #LIST -validation- OK     
 #     return ls_fileNames
+
+def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name):
+    """
+    
+    """
+    print("[INFO_get_img2vec]-len(ls_fileNames)-",len(ls_fileNames))
+    ls_feature = []
+    for iter_k in tqdm(range(len(ls_fileNames))):  #for iter_k in tqdm(range(50)):
+        print("[INFO_get_img2vec]-STARTED--Extracting Features-->>",iter_k)
+        normalized_features = extract_features(ls_fileNames[iter_k],model_archType)
+        ls_feature.append(normalized_features)  
+    print("[INFO_get_img2vec]-len(ls_feature----",len(ls_feature))
+    print("[INFO_get_img2vec]-len(ls_feature[0]----",len(ls_feature[0]))
+    #pickle.dump(ls_feature, open('./pickle_files/'+str(str_cnst_caltech)+'_img2vec_.pickle', 'wb'))
+    #print("----get_img2vec---Pickle File Written--->>\n",str(str_cnst_caltech)+'_img2vec_.pickle')
+    return ls_feature
+
     
 
 if __name__ == "__main__":
@@ -412,26 +422,25 @@ if __name__ == "__main__":
     root_dir_label_name = root_dir_1.split('/')[-2] 
     print("----root_dir_label_name-",root_dir_label_name)
     str_cnst_caltech = "caltech_nn_"+str(root_dir_label_name)#+str(minute_now) #
-    # TODO -- Fails as next Min Read Pickle has new name 
+    #TODO -- Fails as next Min Read Pickle has new name 
 
     
-    # TODO -- toggle below code 
+    #TODO -- toggle below code 
     ls_fileNames = get_fileNames_pickle(root_dir_1,str_cnst_caltech)
-    print("---main---ls_fileNames----",len(ls_fileNames))
+    print("[INFO_main--ls_fileNames--",len(ls_fileNames)) # 435
     ls_ftrs = get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name)
 
-    # # TODO -- toggle below code 
-    # ls_fileNames = read_fName_pickle(str_cnst_caltech) # TODO - hold_on_6_4_23__No_Pickling
-    # ls_ftrs = read_ftrs_pickle(str_cnst_caltech) # TODO - hold_on_6_4_23__No_Pickling
-
-    neighbors = NearestNeighbors(n_neighbors=5, algorithm='brute',metric='euclidean').fit(ls_ftrs)
-    print("[INFO__type(neighbors)----",type(neighbors))
+    neighbors = NearestNeighbors(n_neighbors=10, algorithm='brute',metric='euclidean').fit(ls_ftrs)
+    print("[INFO__type(neighbors)--",type(neighbors)) #<class 'sklearn.neighbors._unsupervised.NearestNeighbors'>
     ls_similar_image_paths ,ls_distances  = query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
-    print("[INFO__LEN(--ls_similar_image_paths----",len(ls_similar_image_paths))
+    print("[INFO__LEN(--ls_similar_image_paths----",len(ls_similar_image_paths)) # 12 
 
     meta_data_df = plot_nn_images(ls_similar_image_paths ,ls_distances,root_dir_label_name)
 
     # file_extn_type = ".png"
     # get_all_files_df(root_dir_1,root_dir_label_name,file_extn_type)
 
-    # #TODO -- NotRequired>> wrapper_plot_nn_images(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
+    #TODO -- NotRequired>> wrapper_plot_nn_images(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
+    # TODO -- toggle below code 
+    # ls_fileNames = read_fName_pickle(str_cnst_caltech) # TODO - hold_on_6_4_23__No_Pickling
+    # ls_ftrs = read_ftrs_pickle(str_cnst_caltech) # TODO - hold_on_6_4_23__No_Pickling
