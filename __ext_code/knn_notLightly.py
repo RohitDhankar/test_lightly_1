@@ -380,8 +380,8 @@ def get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name
     print("---get_img2vec--len(ls_feature----",len(ls_feature))
     print("----get_img2vec-len(ls_feature[0]----",len(ls_feature[0]))
     
-    pickle.dump(ls_feature, open('./pickle_files/'+str(str_cnst_caltech)+'_img2vec_.pickle', 'wb'))
-    print("----get_img2vec---Pickle File Written--->>\n",str(str_cnst_caltech)+'_img2vec_.pickle')
+    #pickle.dump(ls_feature, open('./pickle_files/'+str(str_cnst_caltech)+'_img2vec_.pickle', 'wb'))
+    #print("----get_img2vec---Pickle File Written--->>\n",str(str_cnst_caltech)+'_img2vec_.pickle')
     return ls_feature
 
 # def read_ftrs_pickle(str_cnst_caltech):
@@ -422,8 +422,9 @@ if __name__ == "__main__":
     ls_ftrs = get_img2vec(ls_fileNames,str_cnst_caltech,model_archType,root_dir_label_name)
 
     # # TODO -- toggle below code 
-    # ls_fileNames = read_fName_pickle(str_cnst_caltech)
-    # ls_ftrs = read_ftrs_pickle(str_cnst_caltech)
+    # ls_fileNames = read_fName_pickle(str_cnst_caltech) # TODO - hold_on_6_4_23__No_Pickling
+    # ls_ftrs = read_ftrs_pickle(str_cnst_caltech) # TODO - hold_on_6_4_23__No_Pickling
+
     # neighbors = NearestNeighbors(n_neighbors=5, algorithm='brute',metric='euclidean').fit(ls_ftrs)
     # ls_similar_image_paths ,ls_distances  = query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
     # print("----LEN(--ls_similar_image_paths----------",len(ls_similar_image_paths))
