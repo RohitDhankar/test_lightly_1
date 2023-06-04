@@ -1,0 +1,54 @@
+----Type(model--- <class 'tensorflow.python.keras.engine.training.Model'>
+Num GPUs Available:  1
+----root_dir_label_name- faces_1
+--get_fileNames_pickle----str_cnst_caltech- caltech_nn_faces_1
+--get_fileNames_pickle----root_dir_1- ./datasets/input_dir/imgs/knn_imgs/faces_1/
+-[INFO_get_file_list]-file_list-- ['./datasets/input_dir/imgs/knn_imgs/faces_1/image_0017.jpg', './datasets/input_dir/imgs/knn_imgs/faces_1/image_0018.jpg', './datasets/input_dir/imgs/knn_imgs/faces_1/image_0025.jpg', './datasets/input_dir/imgs/knn_imgs/faces_1/image_0003.jpg', './datasets/input_dir/imgs/knn_imgs/faces_1/image_0009.jpg']
+---main---ls_fileNames---- 29
+-[INFO_get_img2vec]-STARTED--Extracting Features-->>
+---get_img2vec---len(ls_fileNames)- 29
+--[INFO_get_img2vec]-STARTED---Extracting Contours ----->> 0
+-[INFO_get_cntrs]-img_init.shape-- (334, 290, 3)
+-[INFO_get_cntrs]--type(max_cntr_area-- <class 'numpy.ndarray'>
+-[INFO_get_cntrs]--max_cntr_area-- [[[ 0  0]]
+
+ [[ 0  7]]
+
+ [[ 1  7]]
+
+ ...
+
+ [[ 6 22]]
+
+ [[ 7 21]]
+
+ [[ 7  0]]]
+-[INFO_get_cntrs]--type(max_cntr_perimeter--- <class 'list'>
+-[INFO_get_cntrs]--type(max_cntr_perimeter--- 289
+-[INFO_get_cntrs]--max_cntr_perimeter--- [[[ 0  0]]
+
+ [[ 0  7]]
+
+ [[ 1  7]]
+
+ ...
+
+ [[ 6 22]]
+
+ [[ 7 21]]
+
+ [[ 7  0]]]
+---LEN-cntrs---- 289
+---img_init.shape---- (334, 290, 3)
+--TEST---aa---type(img_max_area_cntr)---- <class 'numpy.ndarray'>
+---path_img_cntrs----
+ ./output_dir/knn_similar_images/faces_1/max_area_cntr/image
+---img_init.shape---- (334, 290, 3)
+--TEST---aa---type(img_max_perimeter_cntr)---- <class 'numpy.ndarray'>
+---path_img_cntrs----
+ ./output_dir/knn_similar_images/faces_1/max_perimeter_cntr/image
+---img_init.shape---- (334, 290, 3)
+---path_img_cntrs----
+ ./output_dir/knn_similar_images/faces_1/all_cntrs/image
+-[INFO_extract_features]---type(img_array-->> <class 'numpy.ndarray'>
+-[INFO_extract_features]---type(preprocessed_img-->> <class 'numpy.ndarray'>

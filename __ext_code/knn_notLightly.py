@@ -153,54 +153,54 @@ def get_file_list(root_dir):
 #     return str.split('/')[-2] + '/' + str.split('/')[-1]
 
 
-# def plot_nn_images(ls_similar_image_paths ,ls_distances,root_dir_label_name):
-#     """
-#     # Helper functions to plot the nearest images given a query image
-#     """
-#     import shutil , os 
-#     # from datetime import datetime
-#     # dt_time_now = datetime.now()
-#     # hour_now = dt_time_now.strftime("_%m_%d_%Y_%H")
+def plot_nn_images(ls_similar_image_paths ,ls_distances,root_dir_label_name):
+    """
+    # Function to plot the nearest images given a query image
+    """
+    import shutil , os 
+    # from datetime import datetime
+    # dt_time_now = datetime.now()
+    # hour_now = dt_time_now.strftime("_%m_%d_%Y_%H")
 
-#     ls_similar_img_name = []
-#     ls_copy_to_path = []
-#     ls_k_near_img = []
+    ls_similar_img_name = []
+    ls_copy_to_path = []
+    ls_k_near_img = []
 
-#     meta_data_df = pd.DataFrame()
-#     for iter_k in range(len(ls_similar_image_paths)):
-#         for similar_img_name in ls_similar_image_paths[iter_k]:
-#             print("--plot_nn_images-similar_image_paths--NOW-->>ls_similar_image_paths[iter_k]--",ls_similar_image_paths[iter_k])
-#             print("---plot_nn_images--similar_img_name---",similar_img_name)
-#             k_near_img = similar_img_name.split('/')[-1] 
-#             print("---plot_nn_images--k_near_img--->>\n",k_near_img)
-#             init_query_img = ls_similar_image_paths[iter_k][0].split('/')[-1] 
-#             print("---plot_nn_images--init_query_img--->>\n",init_query_img) # TODO -- main -- Copy to a DIR NAME with Minutes and -MAIN QUERY IMAGE FileName
-#             query_img = init_query_img.split('_')[0] 
-#             print("---plot_nn_images--query_img---->>\n",query_img)
+    meta_data_df = pd.DataFrame()
+    for iter_k in range(len(ls_similar_image_paths)):
+        for similar_img_name in ls_similar_image_paths[iter_k]:
+            print("--plot_nn_images-similar_image_paths--NOW-->>ls_similar_image_paths[iter_k]--",ls_similar_image_paths[iter_k])
+            print("---plot_nn_images--similar_img_name---",similar_img_name)
+            k_near_img = similar_img_name.split('/')[-1] 
+            print("---plot_nn_images--k_near_img--->>\n",k_near_img)
+            init_query_img = ls_similar_image_paths[iter_k][0].split('/')[-1] 
+            print("---plot_nn_images--init_query_img--->>\n",init_query_img) # TODO -- main -- Copy to a DIR NAME with Minutes and -MAIN QUERY IMAGE FileName
+            query_img = init_query_img.split('_')[0] 
+            print("---plot_nn_images--query_img---->>\n",query_img)
 
-#             dt_time_now = datetime.now() 
-#             #hour_now = dt_time_now.strftime("_%m_%d_%Y_%H_/")
-#             query_img_dir_path = "./output_dir/knn_similar_images/"+str(root_dir_label_name)+"/"+str(query_img)+"/"
-#             print("---query_img_dir_path----\n",query_img_dir_path)
-#             #hourly_dir = os.path.join(crop_img_dir_path)
-#             if not os.path.exists(query_img_dir_path):
-#                 os.makedirs(query_img_dir_path)
-#             print("---COPY THIS ---",similar_img_name)
-#             copy_to_path = str(query_img_dir_path)+str(k_near_img)
-#             print("---COPY HERE ----copy_to_path----",copy_to_path)
-#             shutil.copyfile(similar_img_name, copy_to_path)
-#             ls_copy_to_path.append(copy_to_path)
-#             ls_similar_img_name.append(similar_img_name)
-#             ls_k_near_img.append(k_near_img)
-#             #
-#         meta_data_df["similar_img_name"] = ls_similar_img_name
-#         meta_data_df["copy_to_path"] = ls_copy_to_path
-#         meta_data_df["k_near_img"] = ls_k_near_img
+            dt_time_now = datetime.now() 
+            #hour_now = dt_time_now.strftime("_%m_%d_%Y_%H_/")
+            query_img_dir_path = "./output_dir/knn_plots/"+str(root_dir_label_name)+"/"+str(query_img)+"/"
+            print("---query_img_dir_path----\n",query_img_dir_path)
+            #hourly_dir = os.path.join(crop_img_dir_path)
+            if not os.path.exists(query_img_dir_path):
+                os.makedirs(query_img_dir_path)
+            print("---COPY THIS ---",similar_img_name)
+            copy_to_path = str(query_img_dir_path)+str(k_near_img)
+            print("---COPY HERE ----copy_to_path----",copy_to_path)
+            shutil.copyfile(similar_img_name, copy_to_path)
+            ls_copy_to_path.append(copy_to_path)
+            ls_similar_img_name.append(similar_img_name)
+            ls_k_near_img.append(k_near_img)
+            #
+        meta_data_df["similar_img_name"] = ls_similar_img_name
+        meta_data_df["copy_to_path"] = ls_copy_to_path
+        meta_data_df["k_near_img"] = ls_k_near_img
         
-#         output_path='meta_data_df_1.csv'
-#         meta_data_df.to_csv(output_path, mode='a', header=not os.path.exists(output_path))
+        output_path='meta_data_df_1.csv'
+        meta_data_df.to_csv(output_path, mode='a', header=not os.path.exists(output_path))
 
-#     return meta_data_df # for writing to the Meta Data DF in separate call 
+    return meta_data_df # for writing to the Meta Data DF in separate call 
 
 
 
@@ -287,35 +287,34 @@ def get_all_files_df(root_dir,root_dir_label_name,file_extn_type=None):
 
 
 
-# def query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name):
-#     """
-#     TODO - experiment diff distances -Minkowski,Manhattan,Jaccardian,weighted Euclidean 
-#     (weight is contribution of each feature -->> pca.explained_variance_ratio_ )
-#     """
-#     print("---query_img_neighbors----aa----LEN(ls_ftrs----",len(ls_ftrs))
-#     print("---query_img_neighbors----aa----LEN(ls_fileNames----",len(ls_fileNames))
-#     ls_similar_image_paths = []
-#     ls_distances = []
+def query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name):
+    """
+    TODO - experiment diff distances -Minkowski,Manhattan,Jaccardian,weighted Euclidean 
+    (weight is contribution of each feature -->> pca.explained_variance_ratio_ )
+    """
+    print("---query_img_neighbors----LEN(ls_ftrs----",len(ls_ftrs))
+    print("---query_img_neighbors----LEN(ls_fileNames----",len(ls_fileNames))
+    ls_similar_image_paths = []
+    ls_distances = []
 
-#     num_images = 500 #TODO --Not defined in BOOK Code - so ts TOTAL IMAGES Count ??
-#     for iter_k in range(22):
-#         print("-query_img_neighbors--iter---",iter_k)
-#         random_image_index = random.randint(0, num_images) # picks any Random Img Indx -- max val == num_images -- this changes on every run . 
-#         print("---random_image_index--",random_image_index)
-#         #random_image_index = 50 
+    num_images = 5 #TODO --Not defined in BOOK Code - so its PROBABLY TOTAL IMAGES Count ??
+    for iter_k in range(num_images):
+        print("-query_img_neighbors--iter---",iter_k)
+        random_image_index = random.randint(0, num_images-1) #picks any Random Img Indx -- max val == num_images -1 , changes on every run can be same INT VALUE more than once. 
+        print("---random_image_index--",random_image_index) #random_image_index = always 1 less than total count of Images == num_images
         
-#         distances, indices = neighbors.kneighbors([ls_ftrs[random_image_index]])
-#         print("--query_img_neighbors---distances--",distances)
-#         print("--query_img_neighbors---indices--",indices)
-#         # # Don't take the first closest image as it will be the same image
-#         # print("----Query_Image--Same IMAGE--",ls_fileNames[indices[0][iter_k]])
-#         similar_image_paths = [ls_fileNames[random_image_index]] + [ls_fileNames[indices[0][iter_j]] for iter_j in range(1, 4)] # 4
-#         print("---len(similar_image_paths--",len(similar_image_paths))
-#         print("---similar_image_paths--",similar_image_paths)
-#         ls_similar_image_paths.append(similar_image_paths)
-#         print("----distances[0]----",distances[0])
-#         ls_distances.append(distances[0])
-#     return ls_similar_image_paths ,ls_distances
+        distances, indices = neighbors.kneighbors([ls_ftrs[random_image_index]])
+        print("--query_img_neighbors---distances--",distances)
+        print("--query_img_neighbors---indices--",indices)
+        # # Don't take the first closest image as it will be the same image
+        # print("----Query_Image--Same IMAGE--",ls_fileNames[indices[0][iter_k]])
+        similar_image_paths = [ls_fileNames[random_image_index]] + [ls_fileNames[indices[0][iter_j]] for iter_j in range(1, 4)] # 4
+        print("---len(similar_image_paths--",len(similar_image_paths))
+        print("---similar_image_paths--",similar_image_paths)
+        ls_similar_image_paths.append(similar_image_paths)
+        print("----distances[0]----",distances[0])
+        ls_distances.append(distances[0])
+    return ls_similar_image_paths ,ls_distances
 
 
 def get_fileNames_pickle(root_dir_1,str_cnst_caltech):
@@ -425,11 +424,12 @@ if __name__ == "__main__":
     # ls_fileNames = read_fName_pickle(str_cnst_caltech) # TODO - hold_on_6_4_23__No_Pickling
     # ls_ftrs = read_ftrs_pickle(str_cnst_caltech) # TODO - hold_on_6_4_23__No_Pickling
 
-    # neighbors = NearestNeighbors(n_neighbors=5, algorithm='brute',metric='euclidean').fit(ls_ftrs)
-    # ls_similar_image_paths ,ls_distances  = query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
-    # print("----LEN(--ls_similar_image_paths----------",len(ls_similar_image_paths))
+    neighbors = NearestNeighbors(n_neighbors=5, algorithm='brute',metric='euclidean').fit(ls_ftrs)
+    print("[INFO__type(neighbors)----",type(neighbors))
+    ls_similar_image_paths ,ls_distances  = query_img_neighbors(ls_ftrs,ls_fileNames,neighbors,root_dir_label_name)
+    print("[INFO__LEN(--ls_similar_image_paths----",len(ls_similar_image_paths))
 
-    # meta_data_df = plot_nn_images(ls_similar_image_paths ,ls_distances,root_dir_label_name)
+    meta_data_df = plot_nn_images(ls_similar_image_paths ,ls_distances,root_dir_label_name)
 
     # file_extn_type = ".png"
     # get_all_files_df(root_dir_1,root_dir_label_name,file_extn_type)
